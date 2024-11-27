@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transaction Success</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .container {
+        max-width: 600px;
+        margin: auto;
+        padding: 20px;
+        text-align: center;
+      }
+      h1 {
+        color: #4caf50;
+      }
+      p {
+        font-size: 18px;
+        color: #333;
+      }
+      button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+      /* Responsive Design */
+      @media (max-width: 600px) {
+        h1 {
+          font-size: 1.5em;
+        }
+        p {
+          font-size: 1em;
+        }
+        button {
+          font-size: 1em;
+          padding: 8px 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Transaction Successful!</h1>
+      <p>You have sent <span id="amount"></span> to <span id="name"></span>.</p>
+      <button onclick="goBack()">Go Back to Contacts</button>
+    </div>
+
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const amount = params.get("amount");
+      const name = params.get("name");
+
+      document.getElementById("amount").innerText = amount;
+      document.getElementById("name").innerText = name;
+
+      function goBack() {
+        window.location.href = "index.html";
+      }
+    </script>
+  </body>
+</html>
